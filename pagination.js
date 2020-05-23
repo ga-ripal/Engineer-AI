@@ -96,3 +96,9 @@ router.get("/booksquery", (req, res) => {
       });
     });
 });
+
+
+
+
+
+https://kb.objectrocket.com/mongo-db/auto-increment-sequence-in-mongodb-1276
