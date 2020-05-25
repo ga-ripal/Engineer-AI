@@ -1,12 +1,13 @@
 const express = require('express');
 const app = express();
-const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const {
     PORT,DB_URI
 } = require('./configs/env.config');
 
-app.use(bodyParser.json())
+app.use(express.json())
+
+
 mongoose.set('useFindAndModify',false);
 mongoose.connect(DB_URI,{
     useNewUrlParser:true,
@@ -14,10 +15,9 @@ mongoose.connect(DB_URI,{
     console.log('connected to database')
 });
 
-
 require('./models/index.model');
 
-require('./routes/index.route');
+app.use(require('./routes/index.route'));
 
 app.get('/',(req,res)=>{
     res.send('server started')

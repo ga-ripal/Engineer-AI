@@ -5,10 +5,11 @@ const {
 } = require('../constants/models.constant');
 
 const userSchema = new Schema({
-    id: {
-        type: Number,
-        required: true
-    },
+  id:{
+type:String,
+required:true,
+default:"1"
+  },
     firstName: {
         type: String,
         required: true
