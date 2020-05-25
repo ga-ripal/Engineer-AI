@@ -23,8 +23,7 @@ const {
 router.post(`${ROUTES.USER.CREATE_USER.URL}`,  async (req, res, next) => {
     console.log('inside')
     try {
-const {body} =req;
-
+const body =req.body;
 const userInstance = new User({
     ...body
 })
@@ -32,12 +31,25 @@ console.log('user',userInstance)
 const user = await userInstance.save();
 if(user && Object.keys(user).length)
 {
-    return apiHelper.success(res,{user}, ERROR_LITERAL.USER.CREATE_USER.SUCCESS, GLOBAL.STATUS_CODE.SUCCESS)
+    return apiHelper.success(res,{user}, ERROR_LITERAL.USER.CREATE_USER.SUCCESS)
 }
 return apiHelper.failure(res,[],ERROR_LITERAL.USER.CREATE_USER.FAILURE, GLOBAL.STATUS_CODE.BAD_REQUEST)
 
     } catch (err) {
         return apiHelper.failure(res, [err], ERROR_LITERAL.CATCH.ERR)
+    }
+});
+
+router.get(`${ROUTES.USER.GET_ALL_USER.URL}`, async(req,res,next)=>{
+    try{
+
+        const users = await User.find();
+        if(users && Object.keys(users).length){
+            return apiHelper.success(res,{users}, ERROR_LITERAL.USER.GET_ALL_USER.SUCCESS)
+        }
+        return apiHelper.failure(res,[], ERROR_LITERAL.COMMON_MSG.DATA_NOT_FOUND)
+    }catch(err){
+        return apiHelper.failure(res,[err], ERROR_LITERAL.CATCH.ERR)
     }
 })
 

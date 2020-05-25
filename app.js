@@ -1,11 +1,12 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const {
     PORT,DB_URI
 } = require('./configs/env.config');
 
-
+app.use(bodyParser.json())
 mongoose.set('useFindAndModify',false);
 mongoose.connect(DB_URI,{
     useNewUrlParser:true,
