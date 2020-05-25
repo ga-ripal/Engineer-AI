@@ -24,13 +24,7 @@ router.post(`${ROUTES.USER.CREATE_USER.URL}`,  async (req, res, next) => {
     console.log('inside')
     try {
 const {body} =req;
-const email = body.email.toLowerCase();
 
-// const isUSerExists = await User.find( { email } )
-// if(isUSerExists&& Object.keys(isUSerExists).length)
-// {
-//     return apiHelper.failure(res,[],ERROR_LITERAL.USER.CREATE_USER.IS_EXISTS,GLOBAL.STATUS_CODE.BAD_REQUEST )
-// }
 const userInstance = new User({
     ...body
 })
