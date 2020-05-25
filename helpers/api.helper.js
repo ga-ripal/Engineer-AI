@@ -1,5 +1,4 @@
 const GLOBAL = require('../constants/global.constant');
-const ERROR_LITERAL = require('../constants/error-literals.constant');
 
 const success = (res, data = {}, message = '') => {
     return res.status(GLOBAL.STATUS_CODE.SUCCESS).json({

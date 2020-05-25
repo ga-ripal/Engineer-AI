@@ -2,10 +2,12 @@ const ERROR_LITERAL = {
     USER: {
         CREATE_USER: {
             SUCCESS: 'USer created successfully',
+            IS_EXISTS:'User already exists!',
             FAILURE: 'User not created'
         },
         UPDATE_USER: {
             SUCCESS: 'USer updated successfully',
+            IS_EXISTS:'User already exists!',
             FAILURE: 'User not updated'
         },
         GET_USER: {

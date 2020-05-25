@@ -1,10 +1,9 @@
-const REQUEST_METHOD = require('./request-methos.constant')
+const REQUEST_METHOD = require('./request-methods')
 const ROUTES = {
     USER: {
         CREATE_USER: {
             URL: '/users',
             METHOD: REQUEST_METHOD.POST
-
         },
         UPDATE_USER: {
             URL: '/users/:id',
@@ -24,6 +23,4 @@ const ROUTES = {
         }
     }
 }
-module.exports = {
-    ROUTES
-}
+module.exports = {ROUTES}
